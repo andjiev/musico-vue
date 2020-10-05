@@ -8,9 +8,9 @@
     "server": "nodemon --exec babel-node server/index",
     "build": "npm run build:server",
     "build:server": "rimraf dist && babel ./server --out-dir dist/ --copy-files",
-    "client": "npm run serve --prefix client",
+    "client": "npm run start --prefix client",
     "serve": "node dist/server",
-    "dev": "concurrently \"npm run server\" \"npm run serve --prefix client\""
+    "dev": "concurrently \"npm run server\" \"npm run start --prefix client\""
   },
   "keywords": [],
   "author": "",

@@ -1,8 +1,8 @@
 module.exports = {
-  transpileDependencies: ["vuetify"],
+  transpileDependencies: ["vuetify", "vuex-module-decorators"],
 
-  chainWebpack: config => {
-    config.plugin("html").tap(args => {
+  chainWebpack: (config) => {
+    config.plugin("html").tap((args) => {
       args[0].title = "Musico";
       return args;
     });
@@ -11,7 +11,7 @@ module.exports = {
   pluginOptions: {
     apollo: {
       enableMocks: false,
-      enableEngine: true
-    }
-  }
+      enableEngine: true,
+    },
+  },
 };

@@ -2,7 +2,7 @@
   <div class="elementsContainer">
     <ApolloQuery
       :query="require('../graphql/GetTracks.gql')"
-      :variables="{ query: 'a' }"
+      :variables="{ query: searchText }"
     >
       <template v-slot="{ result: { loading, error, data } }">
         <!-- Loading -->
@@ -73,6 +73,9 @@
 
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
+import { namespace } from "vuex-class";
+
+import shared from "@/store/modules/shared";
 import Element from "@/components/Element.vue";
 
 @Component({
@@ -81,7 +84,11 @@ import Element from "@/components/Element.vue";
   }
 })
 export default class App extends Vue {
-  url: string = null;
+  url: string | null = null;
+
+  get searchText(): string {
+    return shared.searchText;
+  }
 
   previewClick(url: string): void {
     this.url = this.url === url ? "" : url;

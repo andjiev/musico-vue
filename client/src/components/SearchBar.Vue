@@ -1,27 +1,49 @@
 <template>
   <div class="searchBar">
-    <input type="text" placeholder="Search.." name="search" />
+    <input
+      type="text"
+      placeholder="Search.."
+      name="search"
+      v-model="searchText"
+    />
   </div>
 </template>
 
 <script lang="ts">
-import Vue from "vue";
-export default Vue.extend({});
+import { Component, Vue } from "vue-property-decorator";
+import shared from "@/store/modules/shared";
+
+@Component
+export default class Searchbar extends Vue {
+  timeout: number | null = null;
+
+  get searchText() {
+    return shared.searchText;
+  }
+
+  set searchText(newValue: string) {
+    if (this.timeout) {
+      clearTimeout(this.timeout);
+    }
+    this.timeout = setTimeout(() => {
+      shared.updateSearchText(newValue);
+    }, 400);
+  }
+}
 </script>
 
 <style>
 .searchBar {
   padding-top: 5vh;
 }
+
 button {
   padding: 13px;
   background: linear-gradient(to bottom, #013e5e, #003452);
   border: none;
   color: #fff;
 }
-.buttonSubmit {
-  margin-left: 15px;
-}
+
 input {
   padding: 16px;
   width: 50vw;

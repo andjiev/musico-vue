@@ -11,8 +11,10 @@
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "sourceMap": true,
+    "noImplicitAny": false,
+    "allowJs": true,
     "baseUrl": ".",
-    "types": ["webpack-env", "vuetify"],
+    "types": ["webpack-env", "vuetify", "vue-cli-plugin-apollo/types"],
     "typeRoots": ["./node_modules/@types", "./node_modules/vuetify/types"],
     "paths": {
       "@/*": ["src/*"]

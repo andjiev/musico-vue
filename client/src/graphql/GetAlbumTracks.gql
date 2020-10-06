@@ -1,0 +1,16 @@
+query getAlbumTracks($id: Int) {
+  albumTracks(id: $id) {
+    id
+    name
+    url
+    album {
+      name
+      images {
+        url
+      }
+    }
+    artists {
+      name
+    }
+  }
+}

@@ -1,0 +1,12 @@
+query getNewReleases {
+  newReleases {
+    id
+    name
+    images {
+      url
+    }
+    artists {
+      name
+    }
+  }
+}

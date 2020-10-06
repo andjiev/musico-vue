@@ -3,12 +3,14 @@ import App from "./App.vue";
 import router from "./router";
 import vuetify from "./plugins/vuetify";
 
-import './main.css';
+import "./main.css";
+import { createProvider } from "./vue-apollo";
 
 Vue.config.productionTip = false;
 
 new Vue({
   router,
   vuetify,
+  apolloProvider: createProvider(),
   render: h => h(App)
 }).$mount("#app");

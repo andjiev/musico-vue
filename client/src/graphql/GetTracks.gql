@@ -1,0 +1,17 @@
+query getTracks($query: String) {
+  tracks(query: $query) {
+    id
+    name
+    popularity
+    url
+    album {
+      name
+      images {
+        url
+      }
+    }
+    artists {
+      name
+    }
+  }
+}

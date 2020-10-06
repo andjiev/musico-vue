@@ -21,8 +21,8 @@ const routes: Array<RouteConfig> = [
   },
   {
     path: "/albums/:id",
-    name: "Albums",
-    component: () => import("../views/Albums.vue"),
+    name: "Album",
+    component: () => import("../views/Album.vue"),
     props: true
   }
 ];

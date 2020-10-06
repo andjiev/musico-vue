@@ -2,7 +2,7 @@
   <div>
     <router-link to="/">Home</router-link>
     <router-link to="/favorites">Favorites</router-link>
-    <router-link to="/explore">Explore</router-link>
+    <router-link to="/popular">Popular</router-link>
   </div>
 </template>
 

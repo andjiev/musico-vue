@@ -1,4 +1,4 @@
-query getAlbumTracks($id: Int) {
+query getAlbumTracks($id: String) {
   albumTracks(id: $id) {
     id
     name

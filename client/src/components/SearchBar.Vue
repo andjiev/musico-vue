@@ -15,7 +15,7 @@ import shared from "@/store/modules/shared";
 
 @Component
 export default class Searchbar extends Vue {
-  timeout: number | null = null;
+  timeout: NodeJS.Timeout | null = null;
 
   get searchText() {
     return shared.searchText;

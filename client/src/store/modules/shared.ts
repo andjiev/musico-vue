@@ -17,7 +17,6 @@ class Shared extends VuexModule {
 
   @Action({ commit: 'setSearchText' })
   public updateSearchText(search: string): string {
-    console.log(search);
     return search;
   }
 };

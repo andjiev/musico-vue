@@ -1,11 +1,22 @@
 <template>
-  <v-card class="text-center pb-3">
+  <v-card>
     <v-img :src="imageSrc ? imageSrc : '../assets/image-note.png'"> </v-img>
     <div class="card-body">
       <v-card-title>{{ name }}</v-card-title>
       <v-card-text>{{ artist }}</v-card-text>
 
-      <div v-if="showOpenAlbumButton"></div>
+      <div v-if="showOpenAlbumButton">
+        <v-row class="p3">
+          <v-col cols="12">
+            <v-btn block @click="() => this.$emit('openAlbumClick')">
+              <div>
+                <i className="fa fa-eye"></i>
+              </div>
+              View album
+            </v-btn></v-col
+          >
+        </v-row>
+      </div>
       <div v-else>
         <v-row>
           <v-col cols="6">

@@ -1,21 +1,18 @@
 <template>
   <div class="elementsContainer">
     <ApolloQuery
-      :query="require('../graphql/GetTracks.gql')"
-      :variables="{ query: searchText }"
+      :query="require('../graphql/GetAlbumTracks.gql')"
+      :variables="{ id }"
     >
       <template v-slot="{ result: { loading, error, data } }">
+        <!-- {{ data }} -->
+
         <!-- Loading -->
         <div v-if="loading" class="loading apollo">Loading...</div>
 
         <!-- Error -->
         <div v-else-if="error" class="error apollo">
-          <img
-            src="../assets/logo.png"
-            width="50%"
-            class="logo-main"
-            alt="logo-main"
-          />
+          No new releases found
         </div>
 
         <!-- Result -->
@@ -25,13 +22,10 @@
             <v-row>
               <v-col
                 v-bind:key="track.id"
-                v-for="track in data.tracks"
+                v-for="track in data.albumTracks"
                 cols="12"
-                xs="12"
-                md="4"
-                lg="3"
               >
-                <Element
+                <ListItem
                   :name="
                     track.name.length > 18
                       ? track.name.substring(0, 18) + '...'
@@ -50,10 +44,11 @@
                       ? track.album.images[0].url
                       : undefined
                   "
+                  :showOpenAlbumButton="true"
                   :previewClicked="track.url === url"
                   :disablePreview="!track.url"
                   @previewClick="previewClick(track.url)"
-                  @saveClick="saveTrack(track)"
+                  @buttonClick="saveTrack(track)"
                 />
               </v-col>
             </v-row>
@@ -69,19 +64,21 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from "vue-property-decorator";
+import { Component, Prop, Vue } from "vue-property-decorator";
 
 import shared from "@/store/modules/shared";
 import favorite from "@/store/modules/favorite";
-import Element from "@/components/Element.vue";
+import ListItem from "@/components/ListItem.vue";
 import { Track } from "../lib/models";
 
 @Component({
   components: {
-    Element
+    ListItem
   }
 })
-export default class Explore extends Vue {
+export default class Album extends Vue {
+  @Prop() id: string;
+
   url = "";
 
   get searchText(): string {

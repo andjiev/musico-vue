@@ -46,7 +46,7 @@ button {
 
 input {
   padding: 16px;
-  width: 50vw;
+  width: 100%;
   font-size: 13px;
   border: none;
   background: linear-gradient(to bottom, #013e5e, #003452);
@@ -71,34 +71,5 @@ input::placeholder {
 ::-ms-input-placeholder {
   /* Microsoft Edge */
   color: #fff;
-}
-
-@media only screen and (min-width: 601px) {
-  .searchBar {
-    float: left;
-    margin-left: 20vw;
-    width: 70vw;
-  }
-}
-@media only screen and (max-width: 600px) {
-  .searchBar {
-    margin-left: 15vw;
-    width: 85vw;
-  }
-}
-@media only screen and (min-width: 800px) {
-  .searchBar {
-    margin-left: 10vw;
-    width: 90vw;
-  }
-}
-@media only screen and (min-width: 1200px) {
-  .searchBar {
-    float: left;
-    margin-left: 10vw;
-  }
-  input {
-    width: 70vw;
-  }
 }
 </style>

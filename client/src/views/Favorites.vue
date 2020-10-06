@@ -22,6 +22,7 @@
               track.album.images.length ? track.album.images[0].url : undefined
             "
             buttonText="Delete"
+            buttonClass="btn-danger"
             :showOpenAlbumButton="true"
             :previewClicked="track.url === url"
             :disablePreview="!track.url"

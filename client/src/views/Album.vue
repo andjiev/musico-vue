@@ -17,8 +17,26 @@
 
         <!-- Result -->
         <div v-else-if="data">
+          <v-container fluid>
+            <v-row dense justify="space-between">
+              <v-col dense style="text-align: left" cols="6">
+                <button
+                  class="btn btn-primary"
+                  style="color: white"
+                  @click="goBack"
+                >
+                  Go back
+                </button>
+              </v-col>
+              <v-col dense cols="6" style="text-align: right">
+                <h4 style="margin-top: 25px">
+                  {{ `Album ${data.albumTracks[0].album.name}:` }}
+                </h4>
+              </v-col>
+            </v-row>
+          </v-container>
+
           <v-container>
-            <h4>Search results:</h4>
             <v-row>
               <v-col
                 v-bind:key="track.id"
@@ -91,6 +109,10 @@ export default class Album extends Vue {
 
   saveTrack(track: Track): void {
     favorite.saveTrack(track);
+  }
+
+  goBack(): void {
+    this.$router.push("/popular");
   }
 }
 </script>

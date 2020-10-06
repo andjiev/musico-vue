@@ -6,43 +6,41 @@
       <v-card-text>{{ artist }}</v-card-text>
 
       <div v-if="showOpenAlbumButton">
-        <v-row class="p3">
-          <v-col cols="12">
-            <v-btn block @click="() => this.$emit('openAlbumClick')">
-              <div>
-                <i className="fa fa-eye"></i>
-              </div>
-              View album
-            </v-btn></v-col
-          >
-        </v-row>
+        <v-container>
+          <v-row>
+            <v-col cols="12">
+              <button
+                class="btn btn-secondary"
+                @click="() => this.$emit('openAlbumClick')"
+              >
+                View album
+              </button></v-col
+            >
+          </v-row>
+        </v-container>
       </div>
       <div v-else>
-        <v-row>
-          <v-col cols="6">
-            <button
-              class="btn btn-secondary"
-              :disabled="disablePreview"
-              @click="() => this.$emit('previewClick')"
-            >
-              <div>
-                <i className="fa fa-music"></i>
-              </div>
-              {{ previewClicked ? "Stop" : "Preview" }}
-            </button>
-          </v-col>
-          <v-col cols="6">
-            <button
-              class="btn btn-secondary"
-              @click="() => this.$emit('saveClick')"
-            >
-              <div>
-                <i className="fa fa-music"></i>
-              </div>
-              {{ buttonText }}
-            </button>
-          </v-col>
-        </v-row>
+        <v-container>
+          <v-row>
+            <v-col cols="6">
+              <button
+                class="btn btn-secondary block"
+                :disabled="disablePreview"
+                @click="() => this.$emit('previewClick')"
+              >
+                {{ previewClicked ? "Stop" : "Preview" }}
+              </button>
+            </v-col>
+            <v-col cols="6">
+              <button
+                class="btn btn-secondary block"
+                @click="() => this.$emit('saveClick')"
+              >
+                {{ buttonText }}
+              </button>
+            </v-col>
+          </v-row>
+        </v-container>
       </div>
     </div>
   </v-card>

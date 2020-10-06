@@ -1,7 +1,9 @@
 <template>
   <div class="header">
-    <Searchbar />
-    <Navigation />
+    <v-container>
+      <Searchbar />
+      <Navigation />
+    </v-container>
   </div>
 </template>
 

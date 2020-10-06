@@ -15,36 +15,22 @@ code {
     monospace;
 }
 
-.elementsContainer {
-  padding-top: 20px;
-}
-
 .container {
-  max-width: 1200px;
+  max-width: 1200px !important;
 }
 
 @media only screen and (min-width: 1600px) {
-  .elementsContainer {
-    margin-left: 7vw;
-  }
   .card-img-top {
     height: 28vh;
   }
 }
 @media only screen and (max-width: 599px) {
-  .elementsContainer {
-    margin-left: 17vw;
-  }
   .card-img-top {
     height: 40vh;
-  }
-  .logo-main {
-    margin-left: 17vw;
   }
 }
 .logo-main {
   padding-top: -50px;
-  margin-left: 7vw;
 }
 h4 {
   text-transform: uppercase;
@@ -71,6 +57,7 @@ p {
 }
 .v-card__title {
   font-size: 16px;
+  display: inherit !important;
   text-transform: uppercase;
   font-family: "Varela Round", sans-serif;
   font-weight: bold;
@@ -100,4 +87,12 @@ button.btn.btn-danger {
   text-transform: uppercase;
   font-family: "Varela Round", sans-serif;
   font-weight: bold;
+}
+
+button.btn[disabled] {
+  opacity: 0.6;
+}
+
+button.btn.block {
+  width: 100%;
 }

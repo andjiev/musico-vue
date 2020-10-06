@@ -2,7 +2,7 @@ module.exports = {
   root: true,
 
   env: {
-    node: true
+    node: true,
   },
 
   extends: [
@@ -10,25 +10,17 @@ module.exports = {
     "eslint:recommended",
     "@vue/typescript/recommended",
     "@vue/prettier",
-    "@vue/prettier/@typescript-eslint"
+    "@vue/prettier/@typescript-eslint",
   ],
 
   parserOptions: {
-    ecmaVersion: 2020
+    ecmaVersion: 2020,
   },
 
   rules: {
     "no-console": "off",
     "no-debugger": "off",
-    "graphql/template-strings": [
-      "error",
-      {
-        env: "literal",
-        projectName: "app",
-        schemaJsonFilepath: "node_modules/.temp/graphql/schema.json"
-      }
-    ]
   },
 
-  plugins: ["graphql"]
+  plugins: ["graphql"],
 };

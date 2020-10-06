@@ -14,14 +14,14 @@
                   </v-img>
                 </v-col>
                 <v-col xs="12" md="4" lg="5">
-                  <v-card-title style="margin-top: 28px;">{{
-                    name
-                  }}</v-card-title>
+                  <v-card-title style="margin-top: 28px;">
+                    {{ name | overflow }}
+                  </v-card-title>
                 </v-col>
                 <v-col xs="12" md="4" lg="4">
-                  <v-card-text style="margin-top: 30px;">{{
-                    artist
-                  }}</v-card-text>
+                  <v-card-text style="margin-top: 30px;">
+                    {{ artist | overflow }}
+                  </v-card-text>
                 </v-col>
               </v-row>
             </v-container>

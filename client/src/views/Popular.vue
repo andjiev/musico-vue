@@ -24,19 +24,8 @@
                 lg="3"
               >
                 <Element
-                  :name="
-                    album.name.length > 18
-                      ? album.name.substring(0, 18) + '...'
-                      : album.name
-                  "
-                  :artist="
-                    album.artists.map(x => x.name).join(', ').length > 18
-                      ? album.artists
-                          .map(x => x.name)
-                          .join(', ')
-                          .substring(0, 18) + '...'
-                      : album.artists.map(x => x.name).join(', ')
-                  "
+                  :name="album.name"
+                  :artist="album.artists.map(x => x.name).join(', ')"
                   :imageSrc="
                     album.images.length ? album.images[0].url : undefined
                   "

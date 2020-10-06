@@ -2,8 +2,8 @@
   <v-card>
     <v-img :src="imageSrc ? imageSrc : '../assets/image-note.png'"> </v-img>
     <div class="card-body">
-      <v-card-title>{{ name }}</v-card-title>
-      <v-card-text>{{ artist }}</v-card-text>
+      <v-card-title>{{ name | overflow }}</v-card-title>
+      <v-card-text>{{ artist | overflow }}</v-card-text>
 
       <div v-if="showOpenAlbumButton">
         <v-container>

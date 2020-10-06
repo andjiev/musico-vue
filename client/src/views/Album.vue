@@ -44,19 +44,8 @@
                 cols="12"
               >
                 <ListItem
-                  :name="
-                    track.name.length > 18
-                      ? track.name.substring(0, 18) + '...'
-                      : track.name
-                  "
-                  :artist="
-                    track.artists.map(x => x.name).join(', ').length > 18
-                      ? track.artists
-                          .map(x => x.name)
-                          .join(', ')
-                          .substring(0, 18) + '...'
-                      : track.artists.map(x => x.name).join(', ')
-                  "
+                  :name="track.name"
+                  :artist="track.artists.map(x => x.name).join(', ')"
                   :imageSrc="
                     track.album.images.length
                       ? track.album.images[0].url

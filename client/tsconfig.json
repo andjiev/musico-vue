@@ -26,7 +26,7 @@
     "src/**/*.tsx",
     "src/**/*.vue",
     "tests/**/*.ts",
-    "tests/**/*.tsx"
+    "tests/**/*.tsx", "typedefs/shims-tsx.d.ts"
   ],
   "exclude": ["node_modules"]
 }

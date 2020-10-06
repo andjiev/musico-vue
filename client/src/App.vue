@@ -1,7 +1,6 @@
 <template>
   <div id="app">
     <v-main>
-      <!-- <Sidebar /> -->
       <Header />
 
       <router-view />
@@ -11,12 +10,10 @@
 
 <script lang="ts">
 import Vue from "vue";
-import Sidebar from "@/components/Sidebar.vue";
 import Header from "@/components/Header.vue";
 
 export default Vue.extend({
   components: {
-    // Sidebar,
     Header
   }
 });

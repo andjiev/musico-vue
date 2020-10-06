@@ -1,18 +1,22 @@
 <template>
   <div class="header">
-    <searchbar />
+    <Searchbar />
+    <Navigation />
   </div>
 </template>
 
 <script lang="ts">
-import Vue from "vue";
+import { Component, Vue } from "vue-property-decorator";
 import Searchbar from "@/components/Searchbar.vue";
+import Navigation from "@/components/Navigation.vue";
 
-export default Vue.extend({
+@Component({
   components: {
-    Searchbar
+    Searchbar,
+    Navigation
   }
-});
+})
+export default class Header extends Vue {}
 </script>
 
 <style>

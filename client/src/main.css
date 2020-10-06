@@ -18,6 +18,11 @@ code {
 .elementsContainer {
   padding-top: 20px;
 }
+
+.container {
+  max-width: 1200px;
+}
+
 @media only screen and (min-width: 1600px) {
   .elementsContainer {
     margin-left: 7vw;
@@ -54,7 +59,7 @@ p {
   font-weight: bold;
   letter-spacing: 2px;
 }
-.card {
+.v-card {
   border: none;
 }
 .card-body {
@@ -64,14 +69,14 @@ p {
 .card-img-top {
   height: 28vh;
 }
-.card-title {
+.v-card__title {
   font-size: 16px;
   text-transform: uppercase;
   font-family: "Varela Round", sans-serif;
   font-weight: bold;
   letter-spacing: 2px;
 }
-.card-text {
+.v-card__text {
   font-size: 14px;
   text-transform: uppercase;
   font-family: "Varela Round", sans-serif;

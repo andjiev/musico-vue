@@ -2,7 +2,7 @@
   <div>
     <ul>
       <li>
-        <router-link to="/">Home</router-link>
+        <router-link to="/">Explore</router-link>
       </li>
       <li>
         <router-link to="/favorites">Favorites</router-link>
@@ -40,5 +40,9 @@ li {
 a {
   color: inherit;
   text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
 }
 </style>

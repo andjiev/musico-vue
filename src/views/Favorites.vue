@@ -3,7 +3,11 @@
     <v-container>
       <h4>Favorite songs:</h4>
       <v-row>
-        <v-col v-bind:key="track.id" v-for="track in favorites" cols="12">
+        <v-col
+          v-bind:key="track.id"
+          v-for="track in filteredTracks(favorites)"
+          cols="12"
+        >
           <ListItem
             :name="track.name"
             :artist="track.artists.map(x => x.name).join(', ')"
@@ -41,16 +45,34 @@ import { Track } from "../lib/models";
 export default class Favorites extends Vue {
   url = "";
 
-  created() {
-    favorite.getTracks();
-  }
-
   get searchText(): string {
     return shared.searchText;
   }
 
   get favorites(): Track[] {
     return favorite.tracks;
+  }
+
+  created() {
+    favorite.getTracks();
+  }
+
+  filteredTracks(tracks) {
+    if (!this.searchText) {
+      return tracks;
+    }
+
+    return tracks.filter(
+      x =>
+        x.name
+          .toLocaleLowerCase()
+          .startsWith(this.searchText.toLocaleLowerCase()) ||
+        !!x.artists.filter(x =>
+          x.name
+            .toLocaleLowerCase()
+            .startsWith(this.searchText.toLocaleLowerCase())
+        ).length
+    );
   }
 
   previewClick(url: string): void {

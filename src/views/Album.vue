@@ -5,8 +5,6 @@
       :variables="{ id }"
     >
       <template v-slot="{ result: { loading, error, data } }">
-        <!-- {{ data }} -->
-
         <!-- Loading -->
         <div v-if="loading" class="loading apollo">Loading...</div>
 
@@ -40,7 +38,7 @@
             <v-row>
               <v-col
                 v-bind:key="track.id"
-                v-for="track in data.albumTracks"
+                v-for="track in filteredTracks(data.albumTracks)"
                 cols="12"
               >
                 <ListItem
@@ -90,6 +88,24 @@ export default class Album extends Vue {
 
   get searchText(): string {
     return shared.searchText;
+  }
+
+  filteredTracks(tracks) {
+    if (!this.searchText) {
+      return tracks;
+    }
+
+    return tracks.filter(
+      x =>
+        x.name
+          .toLocaleLowerCase()
+          .startsWith(this.searchText.toLocaleLowerCase()) ||
+        !!x.artists.filter(x =>
+          x.name
+            .toLocaleLowerCase()
+            .startsWith(this.searchText.toLocaleLowerCase())
+        ).length
+    );
   }
 
   previewClick(url: string): void {

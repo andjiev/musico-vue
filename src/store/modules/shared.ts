@@ -19,6 +19,11 @@ class Shared extends VuexModule {
   public updateSearchText(search: string): string {
     return search;
   }
+
+  @Action({ commit: 'setSearchText' })
+  public clearSearchText(): string {
+    return "";
+  }
 };
 
 export default getModule(Shared);

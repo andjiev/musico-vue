@@ -1,5 +1,6 @@
 import Vue from "vue";
-import VueRouter, { RouteConfig } from "vue-router";
+import VueRouter, { NavigationGuardNext, Route, RouteConfig } from "vue-router";
+import sharedStore from '@/store/modules/shared';
 
 Vue.use(VueRouter);
 
@@ -29,6 +30,12 @@ const routes: Array<RouteConfig> = [
 
 const router = new VueRouter({
   routes
+});
+
+router.beforeEach((to: Route, from: Route, next: NavigationGuardNext<Vue>) => {
+  sharedStore.clearSearchText();
+
+  next();
 });
 
 export default router;

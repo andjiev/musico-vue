@@ -17,7 +17,7 @@
             <v-row>
               <v-col
                 v-bind:key="album.id"
-                v-for="album in data.newReleases"
+                v-for="album in filteredAlbums(data.newReleases)"
                 cols="12"
                 xs="12"
                 md="4"
@@ -58,6 +58,24 @@ import Element from "@/components/Element.vue";
 export default class Popular extends Vue {
   get searchText(): string {
     return shared.searchText;
+  }
+
+  filteredAlbums(albums) {
+    if (!this.searchText) {
+      return albums;
+    }
+
+    return albums.filter(
+      x =>
+        x.name
+          .toLocaleLowerCase()
+          .startsWith(this.searchText.toLocaleLowerCase()) ||
+        !!x.artists.filter(x =>
+          x.name
+            .toLocaleLowerCase()
+            .startsWith(this.searchText.toLocaleLowerCase())
+        ).length
+    );
   }
 
   openAlbum(id: string): void {
